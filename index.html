@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ravintoainelaskuri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="module" src="./src/main.js"></script>
+  </head>
+
+  <body>
+    <div class="content">
+      <section class="day-picker">
+        <button class="previous-day-button"><</button>
+        <h2 class="selected-day-text"></h2>
+        <button class="next-day-button">></button>
+      </section>
+
+      <h2>Syötä uusi ruoka</h2>
+      <form id="food-form">
+        <input type="text" placeholder="Ruoka" id="food-name-input" />
+        <input type="number" placeholder="kcal" id="food-calorie-input" />
+        <input type="number" placeholder="proteiini" id="food-protein-input" />
+        <input
+          type="number"
+          placeholder="hiilihydraatti"
+          id="food-carb-input"
+        />
+        <input type="number" placeholder="rasva" id="food-fat-input" />
+
+        <button>Tallenna</button>
+      </form>
+
+      <h2>Päivän ruoat</h2>
+      <table class="selected-days-foods-table">
+        <thead>
+          <tr>
+            <th>Ruoka</th>
+            <th>Kcal</th>
+            <th>Proteiini</th>
+            <th>Hiilihydraatti</th>
+            <th>Rasva</th>
+            <th><!-- actions, no header needed --></th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
+
+      <table class="selected-days-total-nutrients-table">
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+</html>

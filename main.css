@@ -1,0 +1,104 @@
+* {
+  font-family: "Courier New", Courier, monospace;
+}
+
+html {
+  height: 100vh;
+  color: white;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+body {
+  max-width: 500px;
+  background-color: rgb(18 18 18);
+}
+
+.content {
+  padding: 0px 10px 10px 10px;
+}
+
+.day-picker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.day-picker button {
+  background-color: rgb(200, 200, 200);
+
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+}
+
+input {
+  background-color: inherit;
+
+  border: none;
+  border-bottom: 1px solid rgb(146, 146, 146);
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd; /* Border style */
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+}
+
+/* Target the second <th> and <td> in the first table */
+.selected-days-foods-table th:nth-child(2),
+.selected-days-foods-table td:nth-child(2),
+.selected-days-total-nutrients-table th:nth-child(2),
+.selected-days-total-nutrients-table td:nth-child(2) {
+  color: rgb(107 217 104);
+}
+
+.selected-days-foods-table th:nth-child(3),
+.selected-days-foods-table td:nth-child(3),
+.selected-days-total-nutrients-table th:nth-child(3),
+.selected-days-total-nutrients-table td:nth-child(3) {
+  color: rgb(244 66 80);
+}
+
+.selected-days-foods-table th:nth-child(4),
+.selected-days-foods-table td:nth-child(4),
+.selected-days-total-nutrients-table th:nth-child(4),
+.selected-days-total-nutrients-table td:nth-child(4) {
+  color: rgb(57 146 255);
+}
+
+.selected-days-foods-table th:nth-child(5),
+.selected-days-foods-table td:nth-child(5),
+.selected-days-total-nutrients-table th:nth-child(5),
+.selected-days-total-nutrients-table td:nth-child(5) {
+  color: rgb(254 204 27);
+}
