@@ -1,6 +1,8 @@
 import displayTotalFoodNutrients from "./displayTotalFoodNutrients.js";
 import getFilteredFoodDatas from "../utils/getFilteredFoodDatas.js";
 import onDeleteButtonClick from "../handlers/onDeleteButtonClick.js";
+import calculateNutrientValues from "../utils/calculateNutrientValues.js";
+import InputType from "../types/InputType.js";
 
 export default function displayFoodDatas() {
   const filteredData = getFilteredFoodDatas();
@@ -14,12 +16,19 @@ export default function displayFoodDatas() {
   // Create table rows for the filtered data
   filteredData.forEach((food) => {
     const row = document.createElement("tr");
+
+    const { calorie, protein, carb, fat } = calculateNutrientValues(food);
     row.innerHTML = `
-        <td>${food.foodName}</td>
-        <td>${food.calorie}</td>
-        <td>${food.protein}</td>
-        <td>${food.carb}</td>
-        <td>${food.fat}</td>
+        <td class=${
+          food.inputType === InputType.per100Grams
+            ? "food-name-color-per-100-grams"
+            : "food-name-color-per-serving"
+        }>${food.foodName}</td>
+        <td>${calorie}</td>
+        <td>${protein}</td>
+        <td>${carb}</td>
+        <td>${fat}</td>
+        <td>${food.grams ?? ""}</td>
         <td><button class="delete-button">X</button></td>
       `;
     tableBody.appendChild(row);

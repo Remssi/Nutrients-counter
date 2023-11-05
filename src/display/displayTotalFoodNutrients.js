@@ -14,11 +14,6 @@ export default function displayTotalFoodNutrients() {
   // Set default row
   totalTableBody.innerHTML = `
     <td>Yhteensä</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
   `;
 
   if (filteredData.length === 0) return;
@@ -31,12 +26,26 @@ export default function displayTotalFoodNutrients() {
   const totalProtein = calculateTotal(filteredData, "protein");
   const totalCarb = calculateTotal(filteredData, "carb");
   const totalFat = calculateTotal(filteredData, "fat");
+  const totalGrams = calculateTotal(filteredData, "grams");
 
   // Function to calculate total for a specific nutrient, handling NaN values
   function calculateTotal(filteredData, nutrient) {
     return filteredData.reduce((acc, food) => {
-      const parsedValue = parseInt(food[nutrient]);
-      return isNaN(parsedValue) ? acc : acc + parsedValue;
+      let valueToAdd = 0;
+
+      if (food.inputType === "per100Grams" && nutrient !== "grams") {
+        const grams = food.grams || 100; // If grams is undefined, assume 100g
+        const factor = grams / 100;
+        const nutrientValue = parseFloat(food[nutrient]); // Ensure the value is treated as a number
+        valueToAdd = isNaN(nutrientValue)
+          ? 0
+          : Math.round(nutrientValue * factor);
+      } else {
+        const nutrientValue = parseFloat(food[nutrient]); // Ensure the value is treated as a number
+        valueToAdd = isNaN(nutrientValue) ? 0 : nutrientValue;
+      }
+
+      return acc + valueToAdd;
     }, 0);
   }
   // Create a new row for the total
@@ -47,6 +56,7 @@ export default function displayTotalFoodNutrients() {
     <td>${totalProtein}</td>
     <td>${totalCarb}</td>
     <td>${totalFat}</td>
+    <td>${totalGrams}</td>
     <td></td>
   `;
 

@@ -19,6 +19,19 @@
 
       <h2>Syötä uusi ruoka</h2>
       <form id="food-form">
+        <div class="input-types">
+          <p>per 100g</p>
+          <label class="input-type-switch">
+            <input id="input-type" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          <p>annos</p>
+        </div>
+        <p class="input-tip-text">
+          Syötä ruoan ravintoarvot 100 grammassa, ohjelma laskee syödyn määrän
+          luvut.
+        </p>
+
         <input type="text" placeholder="Ruoka" id="food-name-input" />
         <input type="number" placeholder="kcal" id="food-calorie-input" />
         <input type="number" placeholder="proteiini" id="food-protein-input" />
@@ -28,6 +41,7 @@
           id="food-carb-input"
         />
         <input type="number" placeholder="rasva" id="food-fat-input" />
+        <input type="number" placeholder="grammaa" id="food-grams-input" />
 
         <button>Tallenna</button>
       </form>
@@ -41,6 +55,7 @@
             <th>Proteiini</th>
             <th>Hiilihydraatti</th>
             <th>Rasva</th>
+            <th>Grammaa</th>
             <th><!-- actions, no header needed --></th>
           </tr>
         </thead>
