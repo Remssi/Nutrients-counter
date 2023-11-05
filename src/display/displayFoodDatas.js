@@ -18,6 +18,14 @@ export default function displayFoodDatas() {
     const row = document.createElement("tr");
 
     const { calorie, protein, carb, fat } = calculateNutrientValues(food);
+
+    const totalNutrients = protein + carb + fat;
+
+    // Calculate the percentages for protein, carbs, and fat
+    const proteinPercentage = ((protein / totalNutrients) * 100).toFixed(0);
+    const carbPercentage = ((carb / totalNutrients) * 100).toFixed(0);
+    const fatPercentage = ((fat / totalNutrients) * 100).toFixed(0);
+
     row.innerHTML = `
         <td class=${
           food.inputType === InputType.per100Grams
@@ -25,9 +33,9 @@ export default function displayFoodDatas() {
             : "food-name-color-per-serving"
         }>${food.foodName}</td>
         <td>${calorie}</td>
-        <td>${protein}</td>
-        <td>${carb}</td>
-        <td>${fat}</td>
+        <td>${protein} (${proteinPercentage}%)</td>
+        <td>${carb} (${carbPercentage}%)</td>
+        <td>${fat} (${fatPercentage}%)</td>
         <td>${food.grams ?? ""}</td>
         <td><button class="delete-button">X</button></td>
       `;

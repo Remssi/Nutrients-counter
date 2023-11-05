@@ -13,10 +13,10 @@ const calculateNutrientValues = (food) => {
   }
 
   return {
-    calorie: food.calorie,
-    protein: food.protein,
-    carb: food.carb,
-    fat: food.fat,
+    calorie: Number(food.calorie),
+    protein: Number(food.protein),
+    carb: Number(food.carb),
+    fat: Number(food.fat),
   };
 };
 

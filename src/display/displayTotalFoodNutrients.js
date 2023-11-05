@@ -48,14 +48,21 @@ export default function displayTotalFoodNutrients() {
       return acc + valueToAdd;
     }, 0);
   }
+  const totalNutrients = totalProtein + totalCarb + totalFat;
+
+  // Calculate the percentages for protein, carbs, and fat
+  const proteinPercentage = ((totalProtein / totalNutrients) * 100).toFixed(0);
+  const carbPercentage = ((totalCarb / totalNutrients) * 100).toFixed(0);
+  const fatPercentage = ((totalFat / totalNutrients) * 100).toFixed(0);
+
   // Create a new row for the total
   const totalRow = document.createElement("tr");
   totalRow.innerHTML = `
     <td>Yhteensä</td>
     <td>${totalCalories}</td>
-    <td>${totalProtein}</td>
-    <td>${totalCarb}</td>
-    <td>${totalFat}</td>
+    <td>${totalProtein} (${proteinPercentage}%)</td>
+    <td>${totalCarb} (${carbPercentage}%)</td>
+    <td>${totalFat} (${fatPercentage}%)</td>
     <td>${totalGrams}</td>
     <td></td>
   `;
@@ -63,7 +70,7 @@ export default function displayTotalFoodNutrients() {
   // Construct the text to be copied
   const textToCopy = `${getDateFromLocaleString(
     getSelectedDate()
-  )} ravintoaineet: ${totalCalories} kcal, ${totalProtein}g proteiinia, ${totalCarb}g hiilihydraattia, ${totalFat}g rasvaa.`;
+  )} ravintoaineet: ${totalCalories} kcal, ${totalProtein}g proteiinia (${proteinPercentage}%), ${totalCarb}g hiilihydraattia (${carbPercentage}%), ${totalFat}g rasvaa (${fatPercentage}%).`;
 
   // Create the button element
   const copyButton = document.createElement("button");
