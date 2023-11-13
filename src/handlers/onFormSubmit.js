@@ -1,8 +1,9 @@
 import displayFoodDatas from "../display/displayFoodDatas.js";
 import { getDateObjectFromSelectedDate } from "../selectedDate.js";
 import InputType from "../types/InputType.js";
-import getAllFoodDatas from "../utils/getAllFoodDatas.js";
-import setAllFoodDatas from "../utils/setAllFoodDatas.js";
+import generateUniqueId from "../utils/generateUniqueId.js";
+import getFoodDatas from "../utils/getFoodDatas.js";
+import setFoodDatas from "../utils/setFoodDatas.js";
 
 export default function onFormSubmit(event) {
   event.preventDefault();
@@ -26,9 +27,15 @@ export default function onFormSubmit(event) {
   dateObject.setMinutes(new Date(currentTime).getMinutes());
   dateObject.setSeconds(new Date(currentTime).getSeconds());
 
-  // Create an object with the input values
-  const foodData = {
+  const foodId = generateUniqueId();
+
+  const newFoodRecord = {
     time: dateObject.toLocaleString("fi"),
+    foodId,
+  };
+
+  const newFoodItem = {
+    foodId,
     foodName,
     calorie,
     protein,
@@ -40,13 +47,13 @@ export default function onFormSubmit(event) {
       : InputType.per100Grams,
   };
 
-  // Retrieve existing food data from local storage or initialize an empty array
-  const existingFoodDatas = getAllFoodDatas();
+  const [foodRecords, foodItems] = getFoodDatas();
 
-  // Append the new food data to the existing list
-  existingFoodDatas.push(foodData);
+  // Append the new food data to the existing lists
+  foodRecords.push(newFoodRecord);
+  foodItems.push(newFoodItem);
 
-  setAllFoodDatas(existingFoodDatas);
+  setFoodDatas(foodRecords, foodItems);
 
   // Reset the form after submission (optional)
   document.getElementById("food-form").reset();

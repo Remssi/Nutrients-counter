@@ -3,11 +3,10 @@ import displaySelectedDate from "./display/displaySelectedDate.js";
 import onToggleInputType from "./display/onToggleInputType.js";
 import onFormSubmit from "./handlers/onFormSubmit.js";
 import { setSelectedDate } from "./selectedDate.js";
-import updateInputTypelessDatas from "./utils/updateInputTypelessDatas.js";
+import convertFoodDatasToFoodItems from "./utils/convertFoodDatasToFoodItems.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  // update food datas without input type to per serving
-  updateInputTypelessDatas();
+  convertFoodDatasToFoodItems();
 
   displaySelectedDate();
   displayFoodDatas();

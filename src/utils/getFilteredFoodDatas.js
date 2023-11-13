@@ -1,10 +1,14 @@
 import getDateFromLocaleString from "./getDateFromLocaleString.js";
 import { getSelectedDate } from "../selectedDate.js";
-import getAllFoodDatas from "./getAllFoodDatas.js";
+import getFoodDatas from "./getFoodDatas.js";
+import mapFoodRecordsToFoodItems from "./mapFoodRecordsToFoodItems.js";
 
+// TODO: rename
 export default function getFilteredFoodDatas() {
   // Get food data from localStorage
-  const foodDatas = getAllFoodDatas();
+  const [foodRecords, foodItems] = getFoodDatas();
+
+  const foodDatas = mapFoodRecordsToFoodItems(foodRecords, foodItems);
 
   // Filter foodData for the selected date
   const filteredData = foodDatas.filter((food) => {
