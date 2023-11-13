@@ -17,6 +17,8 @@ export default function onFormSubmit(event) {
   const fat = document.getElementById("food-fat-input").value;
   const grams = document.getElementById("food-grams-input").value;
 
+  const selectedFoodId = document.getElementById("selected-food-id").value;
+
   const dateObject = getDateObjectFromSelectedDate();
 
   // Get the current time in milliseconds
@@ -27,31 +29,35 @@ export default function onFormSubmit(event) {
   dateObject.setMinutes(new Date(currentTime).getMinutes());
   dateObject.setSeconds(new Date(currentTime).getSeconds());
 
-  const foodId = generateUniqueId();
+  const foodId = selectedFoodId ? selectedFoodId : generateUniqueId();
 
   const newFoodRecord = {
     time: dateObject.toLocaleString("fi"),
     foodId,
   };
 
-  const newFoodItem = {
-    foodId,
-    foodName,
-    calorie,
-    protein,
-    carb,
-    fat,
-    grams,
-    inputType: inputTypeIsServing
-      ? InputType.perServing
-      : InputType.per100Grams,
-  };
-
   const [foodRecords, foodItems] = getFoodDatas();
 
   // Append the new food data to the existing lists
   foodRecords.push(newFoodRecord);
-  foodItems.push(newFoodItem);
+
+  // if food was selected from autocomplete, use it and don't add new food item
+  if (!selectedFoodId) {
+    const newFoodItem = {
+      foodId,
+      foodName,
+      calorie,
+      protein,
+      carb,
+      fat,
+      grams,
+      inputType: inputTypeIsServing
+        ? InputType.perServing
+        : InputType.per100Grams,
+    };
+
+    foodItems.push(newFoodItem);
+  }
 
   setFoodDatas(foodRecords, foodItems);
 

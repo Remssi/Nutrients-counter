@@ -94,10 +94,18 @@ td {
   color: rgb(107 217 104);
 }
 
+.auto-complete-calorie {
+  color: rgb(107 217 104);
+}
+
 .selected-days-foods-table th:nth-child(3),
 .selected-days-foods-table td:nth-child(3),
 .selected-days-total-nutrients-table th:nth-child(3),
 .selected-days-total-nutrients-table td:nth-child(3) {
+  color: rgb(244 66 80);
+}
+
+.auto-complete-protein {
   color: rgb(244 66 80);
 }
 
@@ -108,10 +116,18 @@ td {
   color: rgb(57 146 255);
 }
 
+.auto-complete-carb {
+  color: rgb(57 146 255);
+}
+
 .selected-days-foods-table th:nth-child(5),
 .selected-days-foods-table td:nth-child(5),
 .selected-days-total-nutrients-table th:nth-child(5),
 .selected-days-total-nutrients-table td:nth-child(5) {
+  color: rgb(254 204 27);
+}
+
+.auto-complete-fat {
   color: rgb(254 204 27);
 }
 
@@ -184,4 +200,22 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* autocomplete */
+#auto-complete-list {
+  font-size: 14px;
+}
+
+#auto-complete-list div {
+  padding: 6px;
+  cursor: pointer;
+}
+
+#auto-complete-list div:hover {
+  background-color: #2c2c2c;
+}
+
+#auto-complete-list .food-name {
+  font-weight: bold;
 }

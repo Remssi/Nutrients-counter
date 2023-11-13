@@ -32,7 +32,16 @@
           luvut.
         </p>
 
-        <input type="text" placeholder="Ruoka" id="food-name-input" />
+        <input
+          type="text"
+          placeholder="Ruoka"
+          id="food-name-input"
+          autocomplete="off"
+        />
+        <div id="auto-complete-list"></div>
+
+        <input type="hidden" id="selected-food-id" />
+
         <input type="number" placeholder="kcal" id="food-calorie-input" />
         <input type="number" placeholder="proteiini" id="food-protein-input" />
         <input
