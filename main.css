@@ -1,5 +1,6 @@
 * {
   font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
 }
 
 html {
@@ -30,6 +31,7 @@ body {
 
 .content {
   padding: 0px 10px 10px 10px;
+  padding-bottom: 70px;
 }
 
 .day-picker {
@@ -218,4 +220,37 @@ input:checked + .slider:before {
 
 #auto-complete-list .food-name {
   font-weight: bold;
+}
+
+/* bottom navigation bar */
+.bottom-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(26 26 26);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+.bottom-navigation button {
+  background-color: rgb(40 40 40);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.bottom-navigation button a {
+  color: white;
+  text-decoration: none;
+}
+
+.bottom-navigation button:hover {
+  background-color: rgba(32, 32, 32);
+}
+
+.bottom-navigation .navigation-button-active {
+  background-color: #464646;
 }
