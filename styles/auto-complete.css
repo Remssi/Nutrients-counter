@@ -1,0 +1,16 @@
+#auto-complete-list {
+  font-size: 14px;
+}
+
+#auto-complete-list div {
+  padding: 6px;
+  cursor: pointer;
+}
+
+#auto-complete-list div:hover {
+  background-color: #2c2c2c;
+}
+
+#auto-complete-list .food-name {
+  font-weight: bold;
+}
