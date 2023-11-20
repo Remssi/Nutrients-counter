@@ -35,12 +35,12 @@ export default function generateFoodDataList() {
         : "food-name-color-per-serving"
     );
     foodNameElement.textContent =
-      foodItem.foodName.length > 0 ? foodItem.foodName : "Nimetön";
+      foodItem.foodName?.length > 0 ? foodItem.foodName : "Nimetön";
     foodItemDetails.appendChild(foodNameElement);
 
     // Add other properties if they exist
     ["calorie", "protein", "carb", "fat", "grams"].forEach((property) => {
-      if (foodItem[property].length > 0) {
+      if (foodItem[property]?.length > 0) {
         const propertyElement = document.createElement("p");
         propertyElement.classList.add(
           "food-item-data-row",
