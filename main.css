@@ -234,7 +234,9 @@ input:checked + .slider:before {
   width: 100%;
 }
 
-.bottom-navigation button {
+.bottom-navigation a {
+  text-decoration: none;
+  display: block;
   background-color: rgb(40 40 40);
   color: white;
   border: none;
@@ -242,12 +244,7 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-.bottom-navigation button a {
-  color: white;
-  text-decoration: none;
-}
-
-.bottom-navigation button:hover {
+.bottom-navigation a:hover {
   background-color: rgba(32, 32, 32);
 }
 
