@@ -251,3 +251,29 @@ input:checked + .slider:before {
 .bottom-navigation .navigation-button-active {
   background-color: #464646;
 }
+
+/* food data */
+.food-item {
+  background-color: #1a1a1a;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 2px;
+}
+
+.food-item-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.food-item-data-name {
+  font-weight: bold;
+}
+
+.food-item-data-row {
+  margin: 0;
+}
+
+.food-item-related-records {
+  margin: 0;
+}
